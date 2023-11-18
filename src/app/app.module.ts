@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutModule } from './layout/layout.module';
 import { LoginModule } from './login/login.module';
-import { CardComponent } from './components/card/card.component';
-import { TableComponent } from './components/table/table.component';
+import { RegistrationModule } from './registration/registration.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { TableComponent } from './components/table/table.component';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    LoginModule
+    LoginModule,
+    RegistrationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
