@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { cardDataInput } from 'src/app/components/data';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,5 +6,5 @@ import { cardDataInput } from 'src/app/components/data';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  cardData = cardDataInput
+
 }

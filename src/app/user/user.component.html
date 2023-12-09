@@ -1,0 +1,25 @@
+<div class="container">
+    <div>
+        <input class="m-2" id="search" type="text" placeholder="Name" [(ngModel)]="searchTerm" (input)="search()" />
+        <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+    <div class="container" *ngFor="let result of searchResults">
+        <div class="row">
+            <div class="col">
+                {{ result.id }} {{ result.firstName }} {{ result.lastName }}
+                <button class="btn btn-primary" (click)="toggleDetails(result.id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col" id="list">
+                    <p *ngIf="result.id === activeDetailsId">Full Name: {{ result.firstName }} {{ result.lastName }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  

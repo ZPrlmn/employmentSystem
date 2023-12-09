@@ -1,0 +1,120 @@
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDataModal">Add</button>
+
+<form>
+    <div class="modal fade" id="addDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <label class="form-label">ID</label>
+                <input type="number" class="form-control" placeholder="ID"  #id>
+              </div>
+              <div class="col">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="First Name"  #firstName>
+              </div>
+              <div class="col">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" #lastName>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Age</label>
+                <input type="number" class="form-control" placeholder="Age" #age>
+              </div>
+              <div class="col">
+                <label class="form-label">BirthDate</label>
+                <input type="date" class="form-control" placeholder="BirthDate" #birthDate>
+              </div>
+              <div class="col">
+                <label class="form-label">Gender</label>
+                <select class="form-control" name="gender" id="gender"  #gender>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="lesbian">Lesbian</option>
+                  <option value="gay">Gay</option>
+                  <option value="bisexual">Bisexual</option>
+                  <option value="transgender">Transgender</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="@gmail" #email>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" placeholder="Address" #address>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" (click)="getData(id.value, lastName.value, firstName.value, gender.value, age.value, birthDate.value, email.value, address.value)">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Gender</th>
+    </tr>
+    <tr *ngFor="let emp of displayData(); let i  = index">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.lastName }}</td>
+        <td>{{ emp.firstName }}</td>
+        <td>{{ emp.gender }}</td>
+        <td><button class="btn btn-primary text-dark" (click)="viewDetails(i)" data-bs-toggle="modal" data-bs-target="#viewModal">View</button></td>
+        <td><button class="btn btn-danger text-dark" (click)="deleteEmployee(i)">Delete</button></td>
+    </tr>
+</table>
+
+<div class="modal fade" id="viewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">View</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <!-- Inside the modal body -->
+<div class="container" *ngIf="selectedEmployee">
+  <div class="row">
+    <div class="col-3">ID: {{ selectedEmployee.id }}</div>
+    <div class="col-6">{{ selectedEmployee.lastName }}, {{ selectedEmployee.firstName }}</div>
+  </div>
+  <div class="row">
+    <div class="col">Gender: {{ selectedEmployee.gender }}</div>
+    <div class="col">Age: {{ selectedEmployee.age }}</div>
+    <div class="col-6">Birth Date: {{ selectedEmployee.birthDate }}</div>
+  </div>
+  <div class="row">
+    <div class="col">Email: {{ selectedEmployee.email }}</div>
+  </div>
+  <div class="row">
+    <div class="col">Address: {{ selectedEmployee.address }}</div>
+  </div>
+</div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
