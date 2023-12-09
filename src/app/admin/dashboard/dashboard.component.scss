@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    margin-top: 5px;
+}
+
+#col1 {
+    flex: 300px;
+}
+
+#col2 {
+    flex: 100%;
+}
+
+.column {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.card{
+    margin-top: 5px;
+}
+
+#tableTitle{
+    text-align: center;
+    font-size: 30px;
+}

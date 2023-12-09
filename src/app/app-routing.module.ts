@@ -18,10 +18,6 @@ const routes: Routes = [
     path:"registration",
     loadChildren: () => import('./registration/registration.module').then(mod => mod.RegistrationModule)
   },
-  {
-    path:"employee",
-    loadChildren: () => import('./employee/employee.module').then(mod => mod.EmployeeModule)
-  },
 ];
 
 @NgModule({
