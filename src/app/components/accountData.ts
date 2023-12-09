@@ -77,6 +77,4 @@ getUserByEmail(email: string): any {
   return this.users.find(user => user.email.toLowerCase() === lowerCaseEmail);
 }
 
-
-  // Other methods as needed
 }

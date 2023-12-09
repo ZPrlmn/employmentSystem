@@ -32,6 +32,15 @@ export class LoginComponent {
   closeAlert(): void {
     this.showErrorAlert = false;
   }
+
+  admin(adminInput:string){
+    if (adminInput === 'admin') {
+      this.router.navigate([''])
+    }
+    else{
+      this.showErrorAlert = true;
+    }
+  }
   
 
 }

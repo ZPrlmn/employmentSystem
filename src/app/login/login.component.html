@@ -8,13 +8,37 @@
         <label for="password">Password:</label>
         <input class="form-control mb-3" type="password" id="password" [(ngModel)]="password" name="password" required>
       
-        <button class="btn btn-primary w-100" type="submit">Login</button>
+        <button class="btn btn-primary w-100 mb-1" type="submit">Login</button>
+        <button class="btn border-primary w-100 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modalAdmin">Admin</button>
         <a routerLink="registration">No Account? Click here</a>
 
       </form>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Admin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="admin">Password:</label>
+        <input id="admin" type="text" class="form-control" placeholder="Password is admin" #adminInput>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="admin(adminInput.value)">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
   Invalid credentials. Please check your email and password.
