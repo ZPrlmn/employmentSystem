@@ -5,13 +5,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
 })
-
 export class RegistrationComponent {
   showErrorAlert: boolean = false;
   showSuccessAlert: boolean = false;
-  
+
   user: {
     firstName: string;
     lastName: string;
@@ -21,7 +20,7 @@ export class RegistrationComponent {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   constructor(private userService: UserService, private router: Router) {}
@@ -31,15 +30,15 @@ export class RegistrationComponent {
       this.showErrorAlert = true;
       return;
     }
-    
+
     this.userService.registerUser(this.user);
+    this.userService.logUsers(); // Log users to the console
     this.showSuccessAlert = true;
-    this.router.navigate(["user"])
+    this.router.navigate(['login']);
   }
 
   closeAlert(): void {
     this.showErrorAlert = false;
-    this.showSuccessAlert = false
+    this.showSuccessAlert = false;
   }
-
 }

@@ -13,16 +13,6 @@ export class UserService {
     password: string;
   }[] = [];
 
-  registerUser(user: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-  }): void {
-    this.users.push(user);
-    console.log('User registered:', user);
-  }
-
   // user.service.ts
 
 userInput = [
@@ -65,14 +55,28 @@ userInput = [
 ];
 
 constructor() {
-  this.userInput = this.userInput.concat(this.userInput);
+  this.users = this.users.concat(this.userInput);
 }
 
+registerUser(user: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}): void {
+  this.users.push(user);
+  console.log('User registered:', user);
+}
+
+logUsers(): void {
+  console.log('List of Users:', this.users);
+}
 
 getUserByEmail(email: string): any {
   const lowerCaseEmail = email.toLowerCase();
-  return this.userInput.find(user => user.email.toLowerCase() === lowerCaseEmail);
+  return this.users.find(user => user.email.toLowerCase() === lowerCaseEmail);
 }
+
 
   // Other methods as needed
 }
