@@ -1,8 +1,19 @@
-<h1>Users List</h1>
-<div *ngFor="let user of users">
-  {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
-</div>
-<h1>Employees</h1>
-<div *ngFor="let person of people">
-  {{ person.firstName }} {{ person.lastName }} - {{ person.email }}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col" id="borderLeft">
+      <h1>Users List</h1>
+      <div *ngFor="let user of users">
+        {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
+      </div>
+    </div>
+    <div class="col">
+      
+      <h1>Employees</h1>
+      <div *ngFor="let person of people">
+        {{ person.firstName }} {{ person.lastName }} - {{ person.email }}
+      </div>
+    </div>
+  </div>
 </div>

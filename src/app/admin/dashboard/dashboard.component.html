@@ -8,7 +8,7 @@
         </div>
       </div>
 
-      <div class="card bg-warning">
+      <div class="card bg-info">
         <div class="card-body">
             <h5>Employee Email</h5>
             <button type="button" class="btn btn-primary" (click)="showEmployeeEmail()">Proceed</button>
@@ -26,7 +26,6 @@
                 <th>ID</th>
                 <th>Last Name</th>
                 <th>First Name</th>
-                <th>Gender</th>
             </tr>
             <tr *ngFor="let emp of displayData(); let i  = index">
                 <td>{{ emp.id }}</td>
