@@ -12,10 +12,11 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RegistrationModule } from './registration/registration.module';
 import { UserComponent } from './user/user.component';
 import { UserModule } from './user/user.module';
+import { WriterModule } from './writer/writer.module';
 @NgModule({
   declarations: [
     AppComponent,
-    TopnavComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +24,8 @@ import { UserModule } from './user/user.module';
     BrowserAnimationsModule,
     LoginModule,
     RegistrationModule,
-    AdminModule,
-    UserModule
+    UserModule,
+    WriterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

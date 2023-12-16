@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from '../components/accountData';
 import { Router } from '@angular/router';
+import { UserService } from '../user/userData';
 
 @Component({
   selector: 'app-registration',

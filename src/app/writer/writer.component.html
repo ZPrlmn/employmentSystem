@@ -83,38 +83,82 @@
 </table>
 
 <div class="modal fade" id="viewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">View</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">View</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="!editMode && selectedEmployee">
+          <!-- Display employee details -->
+          <div class="row">
+            <div class="col-3">ID: {{ selectedEmployee.id }}</div>
+            <div class="col-6">{{ selectedEmployee.lastName }}, {{ selectedEmployee.firstName }}</div>
+          </div>
+          <div class="row">
+            <div class="col">Gender: {{ selectedEmployee.gender }}</div>
+            <div class="col">Age: {{ selectedEmployee.age }}</div>
+            <div class="col-6">Birth Date: {{ selectedEmployee.birthDate }}</div>
+          </div>
+          <div class="row">
+            <div class="col">Email: {{ selectedEmployee.email }}</div>
+          </div>
+          <div class="row">
+            <div class="col">Address: {{ selectedEmployee.address }}</div>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="enterEditMode()">Edit</button>
         </div>
-        <div class="modal-body">
-          
-          <!-- Inside the modal body -->
-<div class="container" *ngIf="selectedEmployee">
-  <div class="row">
-    <div class="col-3">ID: {{ selectedEmployee.id }}</div>
-    <div class="col-6">{{ selectedEmployee.lastName }}, {{ selectedEmployee.firstName }}</div>
-  </div>
-  <div class="row">
-    <div class="col">Gender: {{ selectedEmployee.gender }}</div>
-    <div class="col">Age: {{ selectedEmployee.age }}</div>
-    <div class="col-6">Birth Date: {{ selectedEmployee.birthDate }}</div>
-  </div>
-  <div class="row">
-    <div class="col">Email: {{ selectedEmployee.email }}</div>
-  </div>
-  <div class="row">
-    <div class="col">Address: {{ selectedEmployee.address }}</div>
-  </div>
-</div>
 
+        <div *ngIf="editMode && selectedEmployee">
+          <!-- Display edit form -->
+          <form (submit)="editEmployee(selectedEmployeeIndex, editedEmployee)">
+            <div class="row">
+              <div class="col-3">ID: {{ editedEmployee.id }}</div>
+              <div class="col-6">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" [(ngModel)]="editedEmployee.lastName" name="lastName" required>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" [(ngModel)]="editedEmployee.firstName" name="firstName" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" [(ngModel)]="editedEmployee.gender" name="gender" required>
+              </div>
+              <div class="col">
+                <label for="age">Age:</label>
+                <input type="text" id="age" [(ngModel)]="editedEmployee.age" name="age" required>
+              </div>
+              <div class="col-6">
+                <label for="birthDate">Birth Date:</label>
+                <input type="text" id="birthDate" [(ngModel)]="editedEmployee.birthDate" name="birthDate" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="email">Email:</label>
+                <input type="email" id="email" [(ngModel)]="editedEmployee.email" name="email" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="address">Address:</label>
+                <input type="text" id="address" [(ngModel)]="editedEmployee.address" name="address" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+          </form>
+        </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
+
+<button type="button" class="btn btn-primary" routerLink="">Logout</button>

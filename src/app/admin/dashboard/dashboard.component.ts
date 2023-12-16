@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeService } from 'src/app/components/adminData';
+import { EmployeeService } from 'src/app/writer/writerData';
 
 @Component({
   selector: 'app-dashboard',

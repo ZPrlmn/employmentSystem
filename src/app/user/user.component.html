@@ -12,14 +12,23 @@
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                     </svg>
                 </button>
+                
             </div>
-            <div class="row">
+
+          
                 <div class="col" id="list">
-                    <p *ngIf="result.id === activeDetailsId">Full Name: {{ result.firstName }} {{ result.lastName }}</p>
+                    <div *ngIf="result.id === activeDetailsId">
+                        <h4>Full Name: {{ result.firstName }}, {{ result.lastName }}</h4>
+                        <p>Email: {{ result.email }}</p>
+                        <p>Address: {{ result.address }}</p>
+                    </div>
                 </div>
-            </div>
+
+       
         </div>
     </div>
 
 </div>
+
+<button class="btn btn-primary" routerLink="">Logout</button>
   

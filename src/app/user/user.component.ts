@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeService } from '../components/adminData';
+import { EmployeeService } from '../writer/writerData';
 
 @Component({
   selector: 'app-user',

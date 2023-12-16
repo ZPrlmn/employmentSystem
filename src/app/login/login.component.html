@@ -9,6 +9,7 @@
         <input class="form-control mb-3" type="password" id="password" [(ngModel)]="password" name="password" required>
       
         <button class="btn btn-primary w-100 mb-1" type="submit">Login</button>
+        <button class="btn btn-primary w-100 mb-1" routerLink="writer" type="submit">Management</button>
         <button class="btn border-primary w-100 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modalAdmin">Admin</button>
         <a routerLink="registration">No Account? Click here</a>
 
@@ -35,9 +36,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">

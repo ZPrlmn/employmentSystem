@@ -72,6 +72,11 @@ logUsers(): void {
   console.log('List of Users:', this.users);
 }
 
+getUsers(): any[] {
+  return this.users;
+}
+
+
 getUserByEmail(email: string): any {
   const lowerCaseEmail = email.toLowerCase();
   return this.users.find(user => user.email.toLowerCase() === lowerCaseEmail);

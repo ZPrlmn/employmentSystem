@@ -8,13 +8,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { SidenavComponent } from '../components/sidenav/sidenav.component';
+import { AdminComponentsComponent } from './admin-components/admin-components.component';
+import { NavbarComponent } from './admin-components/navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    SidenavComponent,
+    AdminComponentsComponent,
+    NavbarComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

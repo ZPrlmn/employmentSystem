@@ -11,12 +11,11 @@ const routes: Routes = [
       loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
     },
     {
-      path:'employee/list',
-      loadChildren: () => import('./admin-employee/admin-employee.module').then(mod => mod.AdminEmployeeModule)
-    }
+      path:"list",
+      loadChildren: () => import('./list/list.module').then(mod => mod.ListModule)
+    },
   ]
   },
-  {path: 'login', component: LoginComponent}
   
 ];
 

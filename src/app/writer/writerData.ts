@@ -183,4 +183,20 @@ export class EmployeeService {
     );
   }
 
+  editEmployee(index: number, newData: {
+    id: string;
+    lastName: string;
+    firstName: string;
+    gender: string;
+    age: string;
+    birthDate: string;
+    email: string;
+    address: string;
+  }): void {
+    if (index >= 0 && index < this.employee.length) {
+      this.employee[index] = newData;
+    }
+  }
+
 }
+
