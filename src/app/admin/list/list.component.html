@@ -4,15 +4,15 @@
   <div class="row">
     <div class="col" id="borderLeft">
       <h1>Users List</h1>
-      <div *ngFor="let user of users" id="nameList">
-        {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
+      <div *ngFor="let user of getUser.users" id="nameList">
+        {{ user.lastname }}, {{ user.firstname }}
       </div>
     </div>
     <div class="col">
       
       <h1>Employees</h1>
-      <div *ngFor="let person of people" id="nameList">
-        {{ person.firstName }} {{ person.lastName }} - {{ person.email }}
+      <div *ngFor="let employee of getEmployee.employees" id="nameList">
+        ID: {{employee.id}}-{{ employee.lastname }}, {{ employee.firstname }}
       </div>
     </div>
   </div>

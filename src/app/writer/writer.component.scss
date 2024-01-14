@@ -1,7 +1,12 @@
-.table, tr, th, td{
+table,td,th,tr{
     border: solid 1px black;
+    margin: 5px;
 }
 
-#logoutBtn{
-    margin-left: 90%;
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
+
+    

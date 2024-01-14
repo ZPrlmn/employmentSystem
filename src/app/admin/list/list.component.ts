@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/userData';
 import { EmployeeService } from 'src/app/writer/writerData';
@@ -8,29 +9,25 @@ import { EmployeeService } from 'src/app/writer/writerData';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  users: any[] = [];
+  public getUser: any;
+  public getEmployee: any;
 
-  constructor(private userService: UserService, private employeeService: EmployeeService) {}
-
+  constructor(private http: HttpClient) {}
   ngOnInit(): void {
-    this.getUsers();
-    this.displayData();
+      this.getUserMethod();
+      this.getEmployeesMethod();
   }
 
-  getUsers(): void {
-    // Use the UserService to get the list of users
-    this.users = this.userService.getUsers();
+  public getUserMethod(){
+    this.http.get('http://127.0.0.1:8000/api/accounts').subscribe((data) => {
+      console.log(data)
+      this.getUser = data;
+    });
   }
 
-
-
-
-  people: any[] = [];
-
-
-
-  displayData(): void {
-    // Use the WriterDataService to get the list of people
-    this.people = this.employeeService.displayData();
+  public getEmployeesMethod(){
+    this.http.get('http://127.0.0.1:8000/api/employee').subscribe((data) => {
+      this.getEmployee = data;
+    });
   }
 }
