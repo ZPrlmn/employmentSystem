@@ -2,30 +2,35 @@
   <div class="card" id="container">
     <div class="card-body">
       
-      <form (ngSubmit)="register()">
+      <div>
         <div class="form-group">
           <label for="firstName">First Name:</label>
-          <input class="form-control mb-3" type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+          <input class="form-control mb-3" type="text" id="firstName" name="firstName" #firstname>
         </div>
 
         <div class="form-group">
           <label for="lastName">Last Name:</label>
-          <input class="form-control mb-3" type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+          <input class="form-control mb-3" type="text" id="lastName" name="lastName" #lastname>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input class="form-control mb-3" type="email" id="email" [(ngModel)]="user.email" name="email" required>
+          <input class="form-control mb-3" type="email" id="email" name="email" #email>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input class="form-control mb-3" type="text" id="address" name="address" #address>
         </div>
 
         <div class="form-group">
           <label for="password">Password:</label>
-          <input class="form-control mb-3" type="password" id="password" [(ngModel)]="user.password" name="password" required>
+          <input class="form-control mb-3" type="password" id="password" name="password" #password>
         </div>
 
-        <button class="btn btn-primary w-100" type="submit">Register</button>
+        <button class="btn btn-primary w-100" type="submit" routerLink="" (click)="postMethod(firstname.value, lastname.value, email.value, address.value, password.value)">Register</button>
 
-      </form>
+      </div>
 
     </div>
   </div>
